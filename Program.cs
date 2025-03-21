@@ -167,19 +167,20 @@
                     Console.WriteLine("Invalid choice, please press ENTER to continue.");
                     Console.ReadLine();
                 }
-
-
             }
+        }
+                           
+        static void doublesRoller()
+        {
+            Die die1, die2;
+            Console.Clear();
+            
+            Console.WriteLine();
+            Console.WriteLine("PLANET BLORB BANK");
+            Console.WriteLine(); 
 
-            static void doublesRoller()
-            {
-                Console.Clear();
 
-                Console.WriteLine();
-                Console.WriteLine("PLANET BLORB BANK");
-                Console.WriteLine();
 
-            }
         }
     }
 
