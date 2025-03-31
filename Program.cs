@@ -51,7 +51,6 @@
                     Console.WriteLine("Invalid choice, please press ENTER to continue.");
                     Console.ReadLine();
                 }
-
             }
         }
 
@@ -108,7 +107,6 @@
                 else
                     Console.WriteLine("Please enter valid input between " + min + " and " + max + ".");
             }
-
         }
 
         static void banking()
@@ -137,17 +135,17 @@
                 bankSelection = Console.ReadLine().ToLower().Trim();
                 Console.WriteLine();
 
-                if (bankSelection == "deposit")
+                if (bankSelection == "Deposit")
                 {
-                    Console.WriteLine("You chose option 1");
+                    Console.WriteLine("You chose 'DEPOSIT'.");
                     Console.WriteLine("Hit ENTER to continue.");
                     Console.ReadLine();
 
                     prompter();
                 }
-                else if (bankSelection == "withdrawl")
+                else if (bankSelection == "Withdrawl")
                 {
-                    Console.WriteLine("You chose option 2");
+                    Console.WriteLine("You chose 'WITHDRAWL'.");
                     Console.WriteLine("Hit ENTER to continue.");
                     Console.ReadLine();
 
@@ -155,8 +153,8 @@
                 }
                 else if (bankSelection == "Bill Payment")
                 {
-                    Console.WriteLine();
-                    Console.WriteLine();
+                    Console.WriteLine("You chose 'BILL PLAYMENT'.");
+                    Console.WriteLine("Hit ENTER to continue.");
                     Console.ReadLine();
 
                     doublesRoller();
@@ -173,7 +171,6 @@
         static void doublesRoller()
         {
             bool done = false;
-
 
             Die die1, die2;
             Console.Clear();
@@ -205,10 +202,6 @@
             Console.WriteLine();
             Console.WriteLine("DOUBLES DICE ROLL");
             Console.WriteLine(); 
-
-
-
         }
     }
-
 }
