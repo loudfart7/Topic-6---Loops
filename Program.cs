@@ -169,14 +169,41 @@
                 }
             }
         }
-                           
+
         static void doublesRoller()
         {
+            bool done = false;
+
+
             Die die1, die2;
             Console.Clear();
-            
+
+            while (!done)
+            {
+                die1 = new Die();
+                die2 = new Die();
+
+                if (die1.Roll == die2.Roll)
+                {
+                    Console.WriteLine("DOUBLES");
+                    Console.WriteLine("You will be sent back to the menu.");
+                    done = true;
+                }
+                    
+                else
+                    Console.WriteLine("NOT DOUBLES");
+
+                die1.DrawDie();
+                die2.DrawDie();
+
+                Console.WriteLine();
+                Console.WriteLine("PRESS ENTER");
+                Console.Read();
+                Console.Clear();
+            } 
+
             Console.WriteLine();
-            Console.WriteLine("PLANET BLORB BANK");
+            Console.WriteLine("DOUBLES DICE ROLL");
             Console.WriteLine(); 
 
 
