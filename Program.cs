@@ -112,13 +112,14 @@
         static void banking()
         {
             Console.Clear();
-            double balance = 150;
+            double balance = 150, deposit, withdrawl;
+            
 
             Console.WriteLine();
             Console.WriteLine("PLANET BLORB BANK");
             Console.WriteLine();
 
-            string bankSelection = "";
+            string bankSelection ="";
 
             while (bankSelection != "q")
             {
@@ -128,42 +129,96 @@
                 Console.WriteLine("Deposit");
                 Console.WriteLine("Withdrawl");
                 Console.WriteLine("Bill Payment");
-                Console.WriteLine();
-                Console.WriteLine("x - Menu Option x");
                 Console.WriteLine("Q - Quit");
                 Console.WriteLine();
                 bankSelection = Console.ReadLine().ToLower().Trim();
                 Console.WriteLine();
 
-                if (bankSelection == "Deposit")
+                if (balance > 0.75)
                 {
-                    Console.WriteLine("You chose 'DEPOSIT'.");
-                    Console.WriteLine("Hit ENTER to continue.");
-                    Console.ReadLine();
+                    if (bankSelection == "1")
+                    {
+                        balance = balance - 0.75;
+                        Console.WriteLine($"YOUR BALANCE: {balance}");
 
-                    prompter();
-                }
-                else if (bankSelection == "Withdrawl")
-                {
-                    Console.WriteLine("You chose 'WITHDRAWL'.");
-                    Console.WriteLine("Hit ENTER to continue.");
-                    Console.ReadLine();
+                        Console.WriteLine("You chose 'DEPOSIT'.");
+                        Console.WriteLine("Hit ENTER to continue.");
+                        Console.ReadLine();
 
-                    banking();
-                }
-                else if (bankSelection == "Bill Payment")
-                {
-                    Console.WriteLine("You chose 'BILL PLAYMENT'.");
-                    Console.WriteLine("Hit ENTER to continue.");
-                    Console.ReadLine();
+                        Console.Clear();
+                        Console.WriteLine($"BALANCE:{balance}");
 
-                    doublesRoller();
+                        Console.WriteLine("Please enter the amount of BLORPIAN DOLLARS you would like to deposit:");
+
+                        while (!double.TryParse(Console.ReadLine(), out deposit))
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Invalid input, please try again. Input must only contain numbers can must not contain letters or special characters.");
+                            Console.WriteLine();
+                        }
+
+                        Console.WriteLine($"You have deposited{deposit}.");
+                        Console.WriteLine("Press ENTER to continue.");
+                        Console.ReadLine();
+
+                        balance = balance + deposit;
+
+                    }
+                    else if (bankSelection == "2")
+                    {
+                        balance = balance - 0.75;
+                        Console.WriteLine($"YOUR BALANCE: {balance}");
+
+                        Console.WriteLine("You chose 'WITHDRAWL'.");
+                        Console.WriteLine("Hit ENTER to continue.");
+                        Console.ReadLine();
+
+                        Console.WriteLine("Please enter the amount of BLORPIAN DOLLARS you would like to deposit:");
+
+                        while (!double.TryParse(Console.ReadLine(), out withdrawl))
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine("Invalid input, please try again. Input must only contain numbers can must not contain letters or special characters.");
+                            Console.WriteLine();
+                        }
+
+                        while (balance < withdrawl)
+                        {
+                            Console.WriteLine($"The amount you wish to withdrawl current exceeds your balance. Please try again.");
+
+                            while (!double.TryParse(Console.ReadLine(), out withdrawl))
+                            {
+                                Console.WriteLine();
+                                Console.WriteLine("Invalid input, please try again. Input must only contain numbers can must not contain letters or special characters.");
+                                Console.WriteLine();
+                            }
+                        }
+
+                        balance = balance - withdrawl; 
+                    }
+                    else if (bankSelection == "3")
+                    {
+                        balance = balance - 0.75;
+                        Console.WriteLine($"YOUR BALANCE: {balance}");
+
+                        Console.WriteLine("You chose 'BILL PLAYMENT'.");
+                        Console.WriteLine("Hit ENTER to continue.");
+                        Console.ReadLine();
+                    }
+
+                    else
+                    {
+                        Console.WriteLine("Invalid choice, please press ENTER to continue back to MENU.");
+                        Console.ReadLine();
+                    }
                 }
 
                 else
                 {
-                    Console.WriteLine("Invalid choice, please press ENTER to continue.");
-                    Console.ReadLine();
+                    Console.Clear();
+                    Console.WriteLine("Your account balance does not contain the required amount of money to complete any further transactions.");
+                    Console.WriteLine("Press ENTER to go back to menu.");
+                    Console.Read();
                 }
             }
         }
